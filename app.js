@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var crashRouter = require('./routes/crash');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const crashRouter = require('./routes/crash');
 
-var app = express();
+const app = express();
 
 function structuredLogFormat(tokens, req, res) {
   return JSON.stringify({
