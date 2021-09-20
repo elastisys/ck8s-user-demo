@@ -17,6 +17,7 @@ The `scripts` folder should have self-describing scripts on how to build, test l
 
 ```
 # Change variables accordingly
+SC_DOMAIN=cksc.a1ck.io
 REGISTRY_DOMAIN=harbor.$SC_DOMAIN
 REGISTRY_PROJECT=default
 TAG=v1
