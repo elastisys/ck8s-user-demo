@@ -49,14 +49,3 @@ Selector labels
 app.kubernetes.io/name: {{ include "ck8s-user-demo.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "ck8s-user-demo.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "ck8s-user-demo.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
