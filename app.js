@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
+const promBundle = require("express-prom-bundle");
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -24,6 +25,7 @@ function structuredLogFormat(tokens, req, res) {
 }
 
 app.use(logger(structuredLogFormat));
+app.use(promBundle({includeMethod: true, includePath: true}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
