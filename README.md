@@ -10,3 +10,22 @@ The application provides:
 - Dockerfile;
 - Helm Chart;
 - ability to make it crash (`/crash`).
+
+## Usage
+
+The `scripts` folder should have self-describing scripts on how to build, test locally and deploy the application. Generally one would do:
+
+```
+# Change variables accordingly
+REGISTRY_DOMAIN=harbor.$SC_DOMAIN
+REGISTRY_PROJECT=default
+TAG=v1
+
+docker build -t $REGISTRY_DOMAIN/$REGISTRY_PROJECT/ck8s-user-demo:$TAG
+helm upgrade \
+    --install \
+    myapp \
+    deploy/ck8s-user-demo/ \
+    --set image.repository=$REGISTRY_DOMAIN/$REGISTRY_PROJECT \
+    --set image.tag=$TAG
+```
