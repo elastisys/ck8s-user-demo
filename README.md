@@ -22,11 +22,11 @@ REGISTRY_DOMAIN=harbor.$SC_DOMAIN
 REGISTRY_PROJECT=default
 TAG=v1
 
-docker build -t $REGISTRY_DOMAIN/$REGISTRY_PROJECT/ck8s-user-demo:$TAG
+docker build -t $REGISTRY_DOMAIN/$REGISTRY_PROJECT/ck8s-user-demo:$TAG .
 helm upgrade \
     --install \
     myapp \
     deploy/ck8s-user-demo/ \
-    --set image.repository=$REGISTRY_DOMAIN/$REGISTRY_PROJECT \
+    --set image.repository=$REGISTRY_DOMAIN/$REGISTRY_PROJECT/ck8s-user-demo \
     --set image.tag=$TAG
 ```
