@@ -1,8 +1,6 @@
 {{- if .Values.ingress.enabled }}
 Your application is available at:
-{{- range $item := .Values.ingress.hosts }}
-  https://{{ $item.host }}
-{{- end }}
+  https://{{ .Values.ingress.hostname }}
 {{- else if contains "NodePort" .Values.service.type }}
   export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "ck8s-user-demo.fullname" . }})
   export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
