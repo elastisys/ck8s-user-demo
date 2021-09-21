@@ -31,5 +31,5 @@ helm upgrade \
     --set image.repository=$REGISTRY_DOMAIN/$REGISTRY_PROJECT/ck8s-user-demo \
     --set image.tag=$TAG \
     --set imagePullSecrets[0].name=harbor-pull-secret \
-    --set ingress.hosts[0].host=www.ckwc0.a1ck.io
+    --set ingress.hosts[0].host=demo.$WC_DOMAIN
 ```
