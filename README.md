@@ -28,5 +28,6 @@ helm upgrade \
     myapp \
     deploy/ck8s-user-demo/ \
     --set image.repository=$REGISTRY_DOMAIN/$REGISTRY_PROJECT/ck8s-user-demo \
-    --set image.tag=$TAG
+    --set image.tag=$TAG \
+    --set imagePullSecrets[0].name=harbor-pull-secret
 ```
